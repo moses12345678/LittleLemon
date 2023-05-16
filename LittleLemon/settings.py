@@ -37,7 +37,12 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "restaurant"
+    #Third part
+    "rest_framework",
+    'rest_framework.authtoken',
+    'djoser',
+    #own app
+    "restaurant",
 ]
 
 MIDDLEWARE = [
@@ -70,7 +75,23 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "LittleLemon.wsgi.application"
 
+DJOSER={"USER_ID_FIELD":"username"}
 
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+        #'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly',
+        #'rest_framework.permissions.IsAuthenticatedOrReadOnly',
+    ],
+    'DEFAULT_PERMISSION_CLASSES': [
+    #    'rest_framework.authentication.SessionAuthentication',
+        #'rest_framework.authentication.TokenAuthentication',
+        #'rest_framework.permissions.IsAuthenticatedOrReadOnly',
+        #'rest_framework.permissions.AllowAny',
+        #'rest_framework.permissions.IsAuthenticatedOrReadOnly'
+    ],
+}
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 

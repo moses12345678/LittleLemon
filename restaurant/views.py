@@ -4,9 +4,10 @@ from rest_framework.permissions import DjangoModelPermissionsOrAnonReadOnly, IsA
 from .serializers import *
 #from .models import *
 
+
 # Create your views here.
-def index(request):
-    return render(request, 'index.html',{})
+def home(request):
+    return render(request, 'index.html')
 
 class UserViewSet(viewsets.ModelViewSet):
     permission_classes = [IsAuthenticated]

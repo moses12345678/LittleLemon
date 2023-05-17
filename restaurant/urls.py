@@ -9,6 +9,6 @@ router.register('menus', views.MenuViewSet)
 router.register('bookings', views.BookingViewSet)
 
 urlpatterns = [
-    path('index', views.index, name='index'),
-    path('',include(router.urls)),
+    path('', views.home, name='home'),
+    path('api/',include(router.urls)),
 ]
